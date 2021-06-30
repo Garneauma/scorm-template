@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" dir="ltr" style="font-size: 16px;">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Title of the course | Title of the module</title>
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="./assets/css/main.css">
+	<link rel="stylesheet" href="./assets/css/bootstrap-icons/bootstrap-icons.css">
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="./assets/img/_branding/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<div id="app">
+		<div id="loader">
+			<div class="spinner"></div>
+			<img src="./assets/img/_branding/canada-leaf.svg" width="80" alt="Canada" class="branding">
+		</div>
+
+		<main-nav progress="5" current="0"></main-nav>
+
+		<header id="mainHeader" class="intro-header bg-light">
+			<div class="container">
+				<div class="row no-gutters align-items-center">
+					<div class="col-md-6">
+						<h1 class="mb-0">Title of the course</h1>
+						<p class="tagline mb-4">This is a tagline</p>
+						<p class="mb-4"><button class="btn btn-primary btn-lg" @click="scrollToNextSection(2,'#cl-02')"><i class="bi-arrow-down mr-3"></i>Let's start</button></p>
+						<p class="font-size-sm mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, optio dolor impedit iste dolore nam nobis, non nostrum eaque, labore tempora quam nesciunt cupiditate culpa! Corrupti omnis neque adipisci velit.</p>
+					</div>
+					<div class="col-md-6 d-none d-md-block">
+						<img src="http://placehold.it/800x800" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- MAIN CONTENT GOES HERE -->
+		<main role="main" property="mainContentOfPage">
+
+			<section id="cl-02" class="mod-0 py-5">
+				<div class="container">
+					<h2 class="section-title">Introduction</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque, rem, consectetur aliquid, maxime quae iure magni voluptate libero molestiae perspiciatis facilis amet! Illum minima modi ex animi iure et?</p>
+				</div>
+			</section>
+
+			<section id="cl-03" class="mod-0 py-5 bg-light">
+				<div class="container">
+					<h2 class="section-title">Section title</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque, rem, consectetur aliquid, maxime quae iure magni voluptate libero molestiae perspiciatis facilis amet! Illum minima modi ex animi iure et?</p>
+				</div>
+			</section>
+
+			<section id="cl-04" class="mod-0 py-5">
+				<div class="container">
+					<h2 class="section-title">Section title</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque, rem, consectetur aliquid, maxime quae iure magni voluptate libero molestiae perspiciatis facilis amet! Illum minima modi ex animi iure et?</p>
+				</div>
+			</section>
+
+		</main>
+
+		<footer id="mainFooter">
+			<section class="bg-light py-5">
+				<div class="container">
+					<div class="row justify-content-end">
+						<div class="col-12 col-sm-auto">
+							<next-button link="m1_en.html" v-cloak>Next page</next-button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</footer>
+	</div>
+
+
+	<!-- CDN IMPORTS -->
+	<script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+	<script src="https://unpkg.com/plyr@3.6.8/dist/plyr.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+	<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+
+	<!-- LOCAL SCRIPTS -->
+	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/globals.js"></script>
+	<script src="./assets/js/modules/m0.js"></script>
+</body>
+
+</html>

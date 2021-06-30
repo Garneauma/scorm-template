@@ -1,0 +1,266 @@
+/* ----------
+-- Page components (interactive and static)
+---------- */
+
+
+// Quiz question
+.quiz-question {
+	&:not(.quiz-question-nowrapper) {
+		padding: 5rem 2rem 2rem;
+		background: $white;
+		border-radius: $border-radius;
+		box-shadow: $box-shadow-sm;
+		overflow: hidden;
+	}
+
+	position: relative;
+
+	.question-number {
+		background: $gray-100;
+		font-size: 1rem;
+		padding: .5rem 1rem .5rem 2rem;
+		position: absolute;
+		top: 2rem;
+		left: 0;
+	}
+
+	.question-title {
+		font-size: $font-size-lg;
+		margin-bottom: 1rem;
+	}
+
+	.custom-control {
+		padding-left: 0;
+
+		&.correct {
+			&::after {
+				color: $primary;
+				content: "\f26a";
+				font-family: bootstrap-icons !important;
+				font-size: 1.25rem;
+				position: absolute;
+				top: 50%;
+				right: 1rem;
+				transform: translateY(-50%);
+			}
+		}
+
+		.custom-control-input {
+			& + .custom-control-label {
+				border: 2px solid $gray-100;
+				border-radius: .5rem;
+				display: block;
+				font-weight: bold;
+				padding: .75rem 3rem;
+	
+				&::before, &::after {
+					left: .75rem;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 1.25rem;
+					height: 1.25rem;
+				}
+	
+				&::before {
+					border-width: 2px;
+					border-color: $gray-200;
+				}
+			}
+
+			&:checked + .custom-control-label {
+				background-color: rgba($primary, .1);
+				border-color: $primary;
+
+				&::before {
+					border-color: $primary;
+				}
+			}
+	
+			&:not(:disabled) + .custom-control-label:hover {
+				background-color: $gray-100;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.question-feedback {
+		background: $gray-100;
+		border-left: 3px solid $success;
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+
+		&.feedback-incorrect {
+			border-color: $danger;
+		}
+	}
+}
+
+.quiz-feedback {
+	@extend .quiz-question;
+
+	padding-top: 2rem !important;
+}
+
+
+// Video
+.video-item {
+	video {
+		width: 100%;
+		height: auto;
+	}
+}
+
+
+// Accordion
+.accordion {
+	.card-header {
+		position: relative;
+
+		@include media-breakpoint-down(sm) {
+			padding: .25rem .5rem;
+		}
+	}
+
+	.btn {
+		padding-right: 2rem;
+
+		&::after {
+			content: "\f282";
+			color: $primary;
+			display: inline-block;
+			font-family: bootstrap-icons !important;
+			font-size: 1.5rem;
+			position: absolute;
+			top: 50%;
+			right: 2rem;
+			transform: translateY(-50%);
+			transform-origin: center;
+			transition: transform .3s ease;
+			
+			@include media-breakpoint-down(sm) {
+				font-size: 1rem;
+				right: 1rem;
+			}
+		}
+
+		&[aria-expanded=true]::after {
+			transform: translateY(-50%) rotate(180deg);
+		}
+	}
+}
+
+
+// Checklist
+.checklist {
+	list-style: none;
+	padding: 0;
+
+	li {
+		padding-left: 3.25rem;
+		position: relative;
+
+		&::before {
+			content: "\f26a";
+			color: $primary;
+			font-family: bootstrap-icons !important;
+			font-size: 1.5rem;
+			position: absolute;
+			top: 50%;
+			left: 1rem;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+
+// More info
+.alert-more-info {
+	background-color: $white;
+	border: 1px solid $primary;
+	color: $primary;
+
+	> i {
+		font-size: 1.5rem;
+	}
+
+	> div {
+		padding: .325rem 0;
+	}
+}
+
+
+// Display card
+.display-card {
+	border-radius: .5rem;
+	border: none;
+	box-shadow: $box-shadow;
+
+	&.display-card-left {
+		.card-icon {
+			border-radius: .5rem 0 0 .5rem;
+		}
+	}
+
+	&.display-card-right {
+		.card-icon {
+			border-radius: 0 .5rem .5rem 0;
+		}
+	}
+
+	&.display-card-red {
+		.card-icon {
+			background: $secondary;
+			background: linear-gradient(135deg, $secondary 0%, darken($secondary, 8%) 100%);
+		}
+	}
+
+	.card-icon {
+		background: $primary;
+		background: linear-gradient(-45deg, $primary 0%, lighten($primary, 8%) 100%);
+		color: $white;
+		font-size: 4rem;
+		text-align: center;
+		position: relative;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 3rem;
+		}
+
+		.card-icon-img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		img.card-icon-img {
+			width: 60%;
+		}
+	}
+
+	.card-body {
+		padding: 2rem 3rem;
+
+		@include media-breakpoint-down(sm) {
+			padding: 1rem 1.5rem;
+		}
+	}
+}
+
+
+// Card group
+.card-group {
+	&.wrap-md {
+		@include media-breakpoint-down(md) {
+			flex-direction: column;
+		}
+
+		> .card {
+			@include media-breakpoint-down(md) {
+				margin-bottom: 15px;
+				border: $card-border-width solid $card-border-color;
+				@include border-radius($card-border-radius);
+			}
+		}
+	}
+}

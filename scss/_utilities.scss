@@ -1,0 +1,19 @@
+/* ----------
+-- Utility classes
+---------- */
+
+.font-size-xs {
+	font-size: ($font-size-sm) * 0.75 !important;
+}
+
+.font-size-sm {
+	font-size: $font-size-sm !important;
+}
+
+.font-size-base {
+	font-size: $font-size-base !important;
+}
+
+.font-size-lg {
+	font-size: $font-size-lg !important;
+}

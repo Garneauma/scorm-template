@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en" dir="ltr" style="font-size: 16px;">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Title of the course | Test your knowledge</title>
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="./assets/css/main.css">
+	<link rel="stylesheet" href="./assets/css/bootstrap-icons/bootstrap-icons.css">
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="./assets/img/_branding/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<div id="app">
+		<div id="loader">
+			<div class="spinner"></div>
+			<img src="./assets/img/_branding/canada-leaf.svg" width="80" alt="Canada" class="branding">
+		</div>
+
+		<main-nav progress="95" current="2"></main-nav>
+
+		<header id="mainHeader" class="bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-10 col-xl-8">
+						<h1>Test your knowledge</h1>
+						<p class="tagline">
+							<b>It’s quiz time!</b>
+						</p>
+						<p class="tagline mb-5">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi reiciendis dolorum aspernatur hic iste maxime similique nulla possimus corrupti eum! Perspiciatis dolores eum, nihil sunt eveniet velit porro sequi in.
+						</p>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- MAIN CONTENT GOES HERE -->
+		<main role="main" property="mainContentOfPage">
+
+			<!-- QUIZ -->
+            <section id="cl-02" data-aos="fade" class="quiz-section py-5" v-cloak>
+			<!-- <section id="cl-03" data-aos="fade" v-if="currentLocation >= 3"> -->
+                <div class="container">
+					<h2 class="section-title text-center">Quiz</h2>
+					<div class="row justify-content-center">
+						<div class="col-12 col-lg-10 col-xl-8">
+							<div class="q-height">
+								<transition-group name="custom-classes-transition" enter-active-class="animate__animated animate__fadeInRight" leave-active-class="animate__animated animate__fadeOutLeft" mode="out-in">
+		
+									<!-- QUESTION 1 -->
+									<quiz-mc id="question01" v-if="currentQuestion >= 0" key="question00">
+										<h3 class="question-number">Question 1 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">The purpose of the Accessible Canada Act is to make Canada's federal sector barrier-free by:</legend>
+											<radio :current-question="0" :quiz-scores="quizScores" question-value="1" question-text="2025"></radio>
+											<radio :current-question="0" :quiz-scores="quizScores" question-value="2" question-text="2030"></radio>
+											<radio :current-question="0" :quiz-scores="quizScores" question-value="3" question-text="2040"></radio>
+											<radio :current-question="0" :quiz-scores="quizScores" question-value="4" question-text="2050"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[0].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[0].model == ''" @click="submitAnswer(quizScores[0].model, quizScores, 0)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[0].isCorrect}" v-if="quizScores[0].answer" role="alert">
+											<div v-if="quizScores[0].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, Canada is aiming to be a barrier-free country by 2040.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, Canada is aiming to be a barried-free country by 2040.</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-4" v-if="quizScores[0].answer && currentQuestion == 0">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question02')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 2 -->
+									<quiz-mc id="question02" v-if="currentQuestion >= 1" key="question01" class="mt-5">
+										<h3 class="question-number">Question 2 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">What does the Accessible Canada Act require Public Services and Procurement Canada to create?</legend>
+											<radio :current-question="1" :quiz-scores="quizScores" question-value="1" question-text="A network of persons with disabilities"></radio>
+											<radio :current-question="1" :quiz-scores="quizScores" question-value="2" question-text="An accessibility plan"></radio>
+											<radio :current-question="1" :quiz-scores="quizScores" question-value="3" question-text="An accessibility office"></radio>
+											<radio :current-question="1" :quiz-scores="quizScores" question-value="4" question-text="An accessibility ombudsman’s office"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[1].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[1].model == ''" @click="submitAnswer(quizScores[1].model, quizScores, 1)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[1].isCorrect}" v-if="quizScores[1].answer" role="alert">
+											<div v-if="quizScores[1].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">You’re awesome! Yes, it’s an accessibility plan</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, it’s an accessibility plan.</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-4" v-if="quizScores[1].answer && currentQuestion == 1">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question03')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 3 -->
+									<quiz-mc id="question03" v-if="currentQuestion >= 2" key="question02" class="mt-5">
+										<h3 class="question-number">Question 3 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">Persons with disabilities:</legend>
+											<radio :current-question="2" :quiz-scores="quizScores" question-value="1" question-text="Never experience periods of good health."></radio>
+											<radio :current-question="2" :quiz-scores="quizScores" question-value="2" question-text="Always have the same limitations over time."></radio>
+											<radio :current-question="2" :quiz-scores="quizScores" question-value="3" question-text="May experience periods of good health interrupted by periods of limitations or their limitations may change over time."></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[2].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[2].model == ''" @click="submitAnswer(quizScores[2].model, quizScores, 2)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[2].isCorrect}" v-if="quizScores[2].answer" role="alert">
+											<div v-if="quizScores[2].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, people may experience periods of good health interrupted by periods of limitations or their limitations may change over time.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, people may experience periods of good health interrupted by periods of limitations or their limitations may change over time.</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-4" v-if="quizScores[2].answer && currentQuestion == 2">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question04')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 4 -->
+									<quiz-mc id="question04" v-if="currentQuestion >= 3" key="question03" class="mt-5">
+										<h3 class="question-number">Question 4 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">If you are not sure about the type, or the category, of a person’s disability, what term should you use?</legend>
+											<radio :current-question="3" :quiz-scores="quizScores" question-value="1" question-text="Person with a disability"></radio>
+											<radio :current-question="3" :quiz-scores="quizScores" question-value="2" question-text="Person with a handicap"></radio>
+											<radio :current-question="3" :quiz-scores="quizScores" question-value="3" question-text="The disabled"></radio>
+											<radio :current-question="3" :quiz-scores="quizScores" question-value="4" question-text="The health deficient person"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[3].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[3].model == ''" @click="submitAnswer(quizScores[3].model, quizScores, 3)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[3].isCorrect}" v-if="quizScores[3].answer" role="alert">
+											<div v-if="quizScores[3].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">True! Person with a disability is the term to use when in doubt.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, person with a disability is the term to use when in doubt.</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-4" v-if="quizScores[3].answer && currentQuestion == 3">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question05')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 5 -->
+									<quiz-mc id="question05" v-if="currentQuestion >= 4" key="question04" class="mt-5">
+										<h3 class="question-number">Question 5 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">What is the name of the committee which provide strategic co-ordination needed across PSPC to ensure that the department is accessible and inclusive for people of all abilities?</legend>
+											<radio :current-question="4" :quiz-scores="quizScores" question-value="1" question-text="Deputy Minister Employee Advisory Committee on Accessibility"></radio>
+											<radio :current-question="4" :quiz-scores="quizScores" question-value="2" question-text="Diversity Committee"></radio>
+											<radio :current-question="4" :quiz-scores="quizScores" question-value="3" question-text="Accessibility Committee"></radio>
+											<radio :current-question="4" :quiz-scores="quizScores" question-value="4" question-text="Persons with Disabilities Committee"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[4].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[4].model == ''" @click="submitAnswer(quizScores[4].model, quizScores, 4)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[4].isCorrect}" v-if="quizScores[4].answer" role="alert">
+											<div v-if="quizScores[4].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, it’s the Accessibility Committee</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, it’s the Accessibility Committee</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-4" v-if="quizScores[4].answer && currentQuestion == 4">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question06')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 6 -->
+									<quiz-mc id="question06" v-if="currentQuestion >= 5" key="question05" class="mt-5">
+										<h3 class="question-number">Question 6 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">If there is no budget to cover an accommodation request, a manager should:</legend>
+											<radio :current-question="5" :quiz-scores="quizScores" question-value="1" question-text="Explain to the employee why the accommodation request can’t be approved for now."></radio>
+											<radio :current-question="5" :quiz-scores="quizScores" question-value="2" question-text="Tell the employee that the budget will be adjusted next fiscal year for this accommodation request."></radio>
+											<radio :current-question="5" :quiz-scores="quizScores" question-value="3" question-text="Access the PSPC Workplace Accessibility Fund to accommodate the employee as soon as possible."></radio>
+											<radio :current-question="5" :quiz-scores="quizScores" question-value="4" question-text="Ask the employee to contact his union representative for more details."></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[5].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[5].model == ''" @click="submitAnswer(quizScores[5].model, quizScores, 5)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[5].isCorrect}" v-if="quizScores[5].answer" role="alert">
+											<div v-if="quizScores[5].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Exactly! Access the PSPC Workplace Accessibility Fund to accommodate the employee as soon as possible.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, access the PSPC Workplace Accessibility Fund to accommodate the employee as soon as possible.</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-5" v-if="quizScores[5].answer && currentQuestion == 5">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question07')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 7 -->
+									<quiz-mc id="question07" v-if="currentQuestion >= 6" key="question06" class="mt-5">
+										<h3 class="question-number">Question 7 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">The PSPC Interim Accessibility Plan outlines key areas towards the ultimate goal of universal accessibility and inclusion for:</legend>
+											<radio :current-question="6" :quiz-scores="quizScores" question-value="1" question-text="PSPC employees"></radio>
+											<radio :current-question="6" :quiz-scores="quizScores" question-value="2" question-text="Other Government departments"></radio>
+											<radio :current-question="6" :quiz-scores="quizScores" question-value="3" question-text="Canadian public"></radio>
+											<radio :current-question="6" :quiz-scores="quizScores" question-value="4" question-text="All of the above"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[6].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[6].model == ''" @click="submitAnswer(quizScores[6].model, quizScores, 6)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[6].isCorrect}" v-if="quizScores[6].answer" role="alert">
+											<div v-if="quizScores[6].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, all of the above.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, it was all of the above</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-5" v-if="quizScores[6].answer && currentQuestion == 6">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question08')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 8 -->
+									<quiz-mc id="question08" v-if="currentQuestion >= 7" key="question07" class="mt-5">
+										<h3 class="question-number">Question 8 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">The Human Resources Accessibility Service Centre is a central point of contact for information on:</legend>
+											<radio :current-question="7" :quiz-scores="quizScores" question-value="1" question-text="Accessibility"></radio>
+											<radio :current-question="7" :quiz-scores="quizScores" question-value="2" question-text="Disability management"></radio>
+											<radio :current-question="7" :quiz-scores="quizScores" question-value="3" question-text="Workplace accommodations and adjustments"></radio>
+											<radio :current-question="7" :quiz-scores="quizScores" question-value="4" question-text="All of the above"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[7].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[7].model == ''" @click="submitAnswer(quizScores[7].model, quizScores, 7)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[7].isCorrect}" v-if="quizScores[7].answer" role="alert">
+											<div v-if="quizScores[7].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, all of the above.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, it was all of the above</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-5" v-if="quizScores[7].answer && currentQuestion == 7">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question09')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 9 -->
+									<quiz-mc id="question09" v-if="currentQuestion >= 8" key="question08" class="mt-5">
+										<h3 class="question-number">Question 9 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">The Accessibility Intranet Hub includes information about:</legend>
+											<radio :current-question="8" :quiz-scores="quizScores" question-value="1" question-text="Human Resources Accessibility Service Centre"></radio>
+											<radio :current-question="8" :quiz-scores="quizScores" question-value="2" question-text="Accessible Procurement Resource Centre"></radio>
+											<radio :current-question="8" :quiz-scores="quizScores" question-value="3" question-text="Adaptive technology hardware and software"></radio>
+											<radio :current-question="8" :quiz-scores="quizScores" question-value="4" question-text="All of the above"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[8].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[8].model == ''" @click="submitAnswer(quizScores[8].model, quizScores, 8)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[8].isCorrect}" v-if="quizScores[8].answer" role="alert">
+											<div v-if="quizScores[8].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, all of the above.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, it was all of the above</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-5" v-if="quizScores[8].answer && currentQuestion == 8">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#question10')">Next Question</button>
+										</div>
+									</quiz-mc>
+
+									<!-- QUESTION 9 -->
+									<quiz-mc id="question10" v-if="currentQuestion >= 9" key="question09" class="mt-5">
+										<h3 class="question-number">Question 10 of {{quizScores.length}}</h3>
+										<fieldset class="question-options">
+											<legend class="question-title">What elements are important in building an inclusive workplace?</legend>
+											<radio :current-question="9" :quiz-scores="quizScores" question-value="1" question-text="Open, flexible, respectful and accommodating"></radio>
+											<radio :current-question="9" :quiz-scores="quizScores" question-value="2" question-text="Flexible, respectful and accommodating"></radio>
+											<radio :current-question="9" :quiz-scores="quizScores" question-value="3" question-text="Open, welcoming, flexible, respectful, considerate, accommodating and engaging"></radio>
+											<radio :current-question="9" :quiz-scores="quizScores" question-value="4" question-text="Welcoming, respectful, considerate and  engaging"></radio>
+										</fieldset>
+		
+										<div class="text-center" v-if="quizScores[9].answer === ''">
+											<button class="btn btn-primary btn-lg" :disabled="quizScores[9].model == ''" @click="submitAnswer(quizScores[9].model, quizScores, 9)">Submit</button>
+										</div>
+		
+										<div class="question-feedback animate__animated animate__fadeInLeft animate__faster mb-0" :class="{'feedback-incorrect': !quizScores[9].isCorrect}" v-if="quizScores[9].answer" role="alert">
+											<div v-if="quizScores[9].isCorrect">
+												<h4 class="h6">Correct!</h4>
+												<p class="mb-0">Yes, an inclusive workplace is open, welcoming, flexible, respectful, considerate, accommodating, engaging.</p>
+											</div>
+											<div v-else>
+												<h4 class="h6">Incorrect.</h4>
+												<p class="mb-0">Actually, an inclusive workplace is open, welcoming, flexible, respectful, considerate, accommodating, engaging.</p>
+											</div>
+										</div>
+		
+										<div class="text-center mt-5" v-if="quizScores[9].answer && currentQuestion == 9">
+											<button class="btn btn-primary btn-lg" @click="currentQuestion += 1; scrollToNextSection(2, '#quizFeedback')">View results</button>
+										</div>
+									</quiz-mc>
+								</transition-group>
+		
+								<!-- QUIZ FEEDBACK -->
+								<div id="quizFeedback" class="mt-5 animate__animated animate__fadeInLeft" v-if="currentQuestion == quizScores.length">
+									<div v-if="(computeScore*100)/quizScores.length < 70">
+										<p><b>You had {{ computeScore }} right answers out of 10</b></p>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis labore quis blanditiis molestias accusantium necessitatibus facere nulla neque laborum illo libero quo, nostrum, animi adipisci autem repudiandae reprehenderit, asperiores dolor.</p>
+										<div class="row">
+											<div class="col-12 col-md-6">
+												<button class="btn btn-primary btn-lg btn-block" @click="retry(quizScores); scrollToNextSection(2,'#question01')">Retake the quiz</button>
+											</div>
+											<div class="col-12 col-md-6 mt-2 mt-md-0">
+												<button class="btn btn-primary btn-lg btn-block" @click="scrollToNextSection(3,'#cl-03')">Go to conclusion</button>
+											</div>
+										</div>
+									</div>
+									<div v-else>
+										<p><b>You had {{ computeScore }} right answers out of 10</b></p>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+										<p class="mb-0"><button class="btn btn-primary btn-lg" @click="scrollToNextSection(3,'#cl-03')">Go to conclusion</button></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+			</section>
+			
+			<section id="cl-03" class="py-5 animate__animated animate__fadeIn" v-if="currentLocation >= 3" v-cloak>
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-6">
+							<h2 class="section-title">Conclusion</h2>
+							<p>You have now completed the course on Title of the course.</p>
+							<div class="form-group mb-5">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="IUnderstand" v-model="IUnderstandChecked">
+									<label class="custom-control-label" for="IUnderstand">I confirm that I have completed this course</label>
+								</div>
+							</div>
+							<p><button class="btn btn-primary btn-lg" :disabled="!IUnderstandChecked" @click="exitCourse">Exit course</button></p>
+						</div>
+						<div class="col-6 d-none d-md-block">
+							<img src="http://placehold.it/500x500" alt="" class="img-fluid">
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer id="mainFooter">
+			<section class="bg-light py-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-auto">
+							<prev-button link="m1_en.html" v-cloak>Previous page</prev-button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</footer>
+	</div>
+
+
+	<!-- CDN IMPORTS -->
+	<script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+	<script src="https://unpkg.com/plyr@3.6.8/dist/plyr.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+	<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+
+	<!-- LOCAL SCRIPTS -->
+	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/globals.js"></script>
+	<script src="./assets/js/modules/conclusion.js"></script>
+</body>
+
+</html>

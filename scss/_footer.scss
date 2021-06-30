@@ -1,0 +1,19 @@
+/* ----------
+-- Styling for the main footer
+---------- */
+
+#mainFooter {
+	margin-top: 2rem;
+
+	.btn {
+		&:disabled {
+			cursor: not-allowed;
+		}
+
+		@include media-breakpoint-down(xs) {
+			display: block;
+			margin-bottom: 1.5rem;
+			width: 100%;
+		}
+	}
+}

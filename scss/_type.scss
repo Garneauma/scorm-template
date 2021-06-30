@@ -1,0 +1,17 @@
+/* ----------
+-- Styles related to text
+---------- */
+
+.section-title {
+	color: $secondary;
+	margin: 0 0 4rem;
+
+	@include media-breakpoint-down(sm) {
+		margin: 0 0 2rem;
+		font-size: 1.75rem;
+	}
+}
+
+.section-subtitle {
+	margin: 0 0 2rem;
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fr" dir="ltr" style="font-size: 16px;">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Titre du cours | Titre du module</title>
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="./assets/css/main.css">
+	<link rel="stylesheet" href="./assets/css/bootstrap-icons/bootstrap-icons.css">
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="./assets/img/_branding/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+	<div id="app">
+		<div id="loader">
+			<div class="spinner"></div>
+			<img src="./assets/img/_branding/canada-leaf.svg" width="80" alt="Canada" class="branding">
+		</div>
+
+		<main-nav progress="20" current="1"></main-nav>
+
+		<header id="mainHeader" class="bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-10 col-xl-8">
+						<h1>Module 1<br><span class="font-weight-normal">Titre du module</span></h1>
+						<p class="tagline">Ceci est un slogan.</p>
+						<p class="mb-4"><button class="btn btn-primary btn-lg" @click="scrollToNextSection(2,'#cl-02')"><i class="bi-arrow-down mr-3"></i>Débuter le module</button></p>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- MAIN CONTENT GOES HERE -->
+		<main role="main" property="mainContentOfPage">
+
+			<section id="cl-02" class="mod-1 py-5">
+				<div class="container">
+					<h2 class="section-title">Titre de section</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi culpa soluta numquam adipisci excepturi doloribus non aliquid incidunt corrupti in quo illum quos atque, possimus, est hic quasi pariatur? Hic?</p>
+					<div class="accordion" id="intro-accordion">
+						<div class="card">
+							<div class="card-header" id="accordionTitle1">
+								<h3 class="mb-0">
+									<button v-b-toggle.accordion-1 class="btn btn-link btn-block text-left">Accordion 1</button>
+								</h3>
+							</div>
+
+							<b-collapse id="accordion-1" accordion="intro-accordion" aria-labelledby="accordionTitle1" v-cloak>
+								<div class="card-body">
+									<p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis fugit voluptatum sapiente aspernatur nam illo unde adipisci, doloremque ut praesentium eaque recusandae quos a minus doloribus reprehenderit sunt, voluptas repellat.</p>
+								</div>
+							</b-collapse>
+						</div>
+						<div class="card">
+							<div class="card-header" id="accordionTitle2">
+								<h3 class="mb-0">
+									<button v-b-toggle.accordion-2 class="btn btn-link btn-block text-left">Accordion 2</button>
+								</h3>
+							</div>
+
+							<b-collapse id="accordion-2" accordion="intro-accordion" aria-labelledby="accordionTitle2" v-cloak>
+								<div class="card-body">
+									<p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis fugit voluptatum sapiente aspernatur nam illo unde adipisci, doloremque ut praesentium eaque recusandae quos a minus doloribus reprehenderit sunt, voluptas repellat.</p>
+								</div>
+							</b-collapse>
+						</div>
+						<div class="card">
+							<div class="card-header" id="accordionTitle3">
+								<h3 class="mb-0">
+									<button v-b-toggle.accordion-3 class="btn btn-link btn-block text-left">Accordion 3</button>
+								</h3>
+							</div>
+
+							<b-collapse id="accordion-3" accordion="intro-accordion" aria-labelledby="accordionTitle3" v-cloak>
+								<div class="card-body">
+									<p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis fugit voluptatum sapiente aspernatur nam illo unde adipisci, doloremque ut praesentium eaque recusandae quos a minus doloribus reprehenderit sunt, voluptas repellat.</p>
+								</div>
+							</b-collapse>
+						</div>
+						<div class="card">
+							<div class="card-header" id="accordionTitle4">
+								<h3 class="mb-0">
+									<button v-b-toggle.accordion-4 class="btn btn-link btn-block text-left">Accordion 4</button>
+								</h3>
+							</div>
+
+							<b-collapse id="accordion-4" accordion="intro-accordion" aria-labelledby="accordionTitle4" v-cloak>
+								<div class="card-body">
+									<p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis fugit voluptatum sapiente aspernatur nam illo unde adipisci, doloremque ut praesentium eaque recusandae quos a minus doloribus reprehenderit sunt, voluptas repellat.</p>
+								</div>
+							</b-collapse>
+						</div>
+						<div class="card">
+							<div class="card-header" id="accordionTitle5">
+								<h3 class="mb-0">
+									<button v-b-toggle.accordion-5 class="btn btn-link btn-block text-left">Accordion 5</button>
+								</h3>
+							</div>
+
+							<b-collapse id="accordion-5" accordion="intro-accordion" aria-labelledby="accordionTitle5" v-cloak>
+								<div class="card-body">
+									<p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis fugit voluptatum sapiente aspernatur nam illo unde adipisci, doloremque ut praesentium eaque recusandae quos a minus doloribus reprehenderit sunt, voluptas repellat.</p>
+								</div>
+							</b-collapse>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="cl-03" class="mod-1 bg-light">
+				<div class="py-5">
+					<div class="container">
+						<h2 class="section-title">Titre de section</h2>
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta sit modi odit blanditiis quibusdam fugit non nam eum molestias sunt saepe maiores rerum, mollitia eius assumenda placeat rem optio odio?</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="cl-04" class="mod-1">
+				<div class="py-5">
+					<div class="container">
+						<h2 class="section-title">Titre de section</h2>
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta sit modi odit blanditiis quibusdam fugit non nam eum molestias sunt saepe maiores rerum, mollitia eius assumenda placeat rem optio odio?</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer id="mainFooter">
+			<section class="bg-light py-5">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-12 col-sm-auto">
+							<prev-button link="m0_fr.html" v-cloak>Page précédente</prev-button>
+						</div>
+						<div class="col-12 col-sm-auto">
+							<next-button link="conclusion_fr.html" v-cloak>Page suivante</next-button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</footer>
+	</div>
+
+
+	<!-- CDN IMPORTS -->
+	<script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+	<script src="https://unpkg.com/plyr@3.6.8/dist/plyr.min.js"></script>
+	<script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+	<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+
+	<!-- LOCAL SCRIPTS -->
+	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/globals.js"></script>
+	<script src="./assets/js/modules/m1.js"></script>
+</body>
+
+</html>

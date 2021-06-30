@@ -1,0 +1,29 @@
+/* ----------
+-- Theme variables and overrides for plugin variables (Bootstrap, Plyr). Used mainly for colors.
+---------- */
+
+// Theme colors
+$theme-light-green: #f2f7f4;
+$theme-mid-green: #b3d1bb;
+$theme-forest-green: #004e45;
+
+$theme-pink-1: #faf4f4;
+$theme-pink-2: #f7e6e7;
+$theme-pink-3: #e7d0d1;
+
+$theme-dark-pink: #a1262c;
+
+$primary: $theme-forest-green;
+$secondary: $theme-dark-pink;
+$success: $theme-forest-green;
+$danger: #a61616;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $danger,
+    "danger": $success
+);
+
+// Plyr variables
+$plyr-color-main: var(--plyr-color-main, $primary) !default;

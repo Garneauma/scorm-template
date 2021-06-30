@@ -1,0 +1,108 @@
+<?xml version="1.0" standalone="no" ?>
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+	<general>
+		<title>
+			<langstring xml:lang="en-US">CPC BD EN</langstring>
+		</title>
+		<catalogentry>
+			<catalog></catalog>
+			<entry>
+				<langstring xml:lang="en-US"></langstring>
+			</entry>
+		</catalogentry>
+		<language>en-US</language>
+		<description>
+			<langstring xml:lang="en-US"></langstring>
+		</description>
+		<aggregationlevel>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">3</langstring>
+			</value>
+		</aggregationlevel>
+	</general>
+	<lifecycle>
+		<version>
+			<langstring xml:lang="x-none"></langstring>
+		</version>
+		<status>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none"></langstring>
+			</value>
+		</status>
+		<contribute>
+			<role>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Author</langstring>
+				</value>
+			</role>
+			<centity>
+				<vcard>BEGIN:vCard ORG: END:vCard</vcard>
+			</centity>
+			<date>
+				<datetime>2018-03-7</datetime>
+			</date>
+		</contribute>
+	</lifecycle>
+	<metametadata>
+		<metadatascheme>ADL SCORM 1.2</metadatascheme>
+		<language>en-US</language>
+	</metametadata>
+	<technical>
+		<format>text/html</format>
+		<location type="URI">.</location>
+	</technical>
+	<educational>
+		<learningresourcetype>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none"></langstring>
+			</value>
+		</learningresourcetype>
+	</educational>
+	<rights>
+		<cost>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none"></langstring>
+			</value>
+		</cost>
+		<copyrightandotherrestrictions>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none"></langstring>
+			</value>
+		</copyrightandotherrestrictions>
+		<description>
+			<langstring xml:lang="en-US"></langstring>
+		</description>
+	</rights>
+	<classification>
+		<purpose>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none"></langstring>
+			</value>
+		</purpose>
+		<description>
+			<langstring xml:lang="en-US"></langstring>
+		</description>
+	</classification>
+</lom>

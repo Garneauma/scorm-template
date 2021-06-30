@@ -1,0 +1,11 @@
+/* ----------
+-- Overrides for Bootstrap's modal
+---------- */
+
+.modal-header {
+	.close {
+		color: $black;
+		font-size: 2rem;
+		padding: 1rem;
+	}
+}
